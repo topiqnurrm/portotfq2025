@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0rem;
+  height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #0070f3;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  max-width: 600px;
+}

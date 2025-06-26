@@ -10,10 +10,11 @@ export default function Home() {
       {/* <Navbar /> */}
       <main className={styles.main}>
         <Navbar />
+        {/* <PageContent /> */}
         <PageContent />
       </main>
-      <footer className={styles.footer}>
-      </footer>
+      {/* <footer className={styles.footer}>
+      </footer> */}
     </div>
   );
 }

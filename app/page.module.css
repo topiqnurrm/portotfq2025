@@ -1,10 +1,10 @@
 .page {
   display: grid;
-  grid-template-rows: 0px 1fr 0px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 20px;
+  /* grid-template-rows: 0px 1fr 0px; */
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  /* padding-top: 3.5vh; */
+  /* padding-bottom: 3.5vh; */
   gap: 0px;
   /* font-family: var(--font-geist-sans); */
   font-family: "SansSerifFLF";
@@ -14,13 +14,13 @@
   display: flex;
   flex-direction: column;
   gap: 0px;
-  grid-row-start: 2;
-  width: 100%;
+  /* grid-row-start: 2; */
   padding: 0px;
+  border: 1px solid #000;
 }
 
-.footer {
+/* .footer {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
-}
+} */
