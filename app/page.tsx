@@ -7,17 +7,12 @@ import PageContent from "./page/page_show/ini";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Navbar />
-
+      {/* <Navbar /> */}
       <main className={styles.main}>
-
+        <Navbar />
         <PageContent />
-
-        
       </main>
-
       <footer className={styles.footer}>
-
       </footer>
     </div>
   );
