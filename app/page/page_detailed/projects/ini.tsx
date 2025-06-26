@@ -1,12 +1,12 @@
 import styles from "./ini.module.css";
 
-export default function HomePage() {
+export default function Projects() {
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>page</h1>
+    <section id="projects" className={styles.container}>
+      <h1 className={styles.title}>Projects</h1>
       <p className={styles.subtitle}>
         Ini adalah halaman default menggunakan TypeScript dan CSS terpisah.
       </p>
-    </main>
+    </section>
   );
 }

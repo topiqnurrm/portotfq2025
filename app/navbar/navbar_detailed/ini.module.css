@@ -2,14 +2,39 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0rem 0rem;
   height: 7vh;
   border: 1px solid #000;
 }
 
-.nav {
-  color: #000;
+.nav button {
+  color: #000000;
   padding: 0vh 1vw;
   font-size: 1.2rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-family: "SansSerifFLF";
 }
+
+/* css active navbar */
+.navLink.active {
+  color: #0070f3;
+  position: relative;
+  /* font-weight: 600; */
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: #0070f3;
+  border-radius: 1px;
+}
+

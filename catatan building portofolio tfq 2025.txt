@@ -1,0 +1,32 @@
+universitas negeri yogyakarta
+pendidikan teknik informatika
+22520241016
+088232363332
+
+------------------
+
+app > langsung (page, navbar, dll)
+page / navbar > dibagi (show, show_every, show_detailed)
+navbar/page_detailed > berisi (misal homepage, aboutme, dll), berfokus pada masing masing page
+navbar/page_show > berisi (page.tsx dan page.css), berfokus untuk menampilkan semua page
+
+di show page (app), ada page (udah mentok pinggir padding 20px), footer kosong.
+
+-----------------
+
+Home
+About (Introduction, Skills, Career, Achievements, 
+       Certifications, Publications, Organizations,
+       Education, Activities
+Projects
+Services
+Contact
+
+--------------------
+
+
+
+
+
+
+
