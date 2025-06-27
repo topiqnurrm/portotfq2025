@@ -27,15 +27,24 @@ export default function NavbarDetailed() {
             const sections = ['home', 'about', 'projects', 'services', 'contact'];
             
             for (const sectionId of sections) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const rect = element.getBoundingClientRect();
-                // Check if section is in viewport (considering navbar height)
-                if (rect.top <= 100 && rect.bottom >= 100) {
-                setActiveSection(sectionId);
-                break;
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    const height = rect.height;
+
+                    // Hitung bagian yang terlihat
+                    const visibleTop = Math.max(0, 0 - rect.top); // berapa bagian atas yang sudah masuk
+                    const visibleBottom = Math.min(window.innerHeight, rect.bottom); // sampai mana bagian bawah terlihat
+
+                    const visibleHeight = visibleBottom - Math.max(rect.top, 0); // bagian yang benar-benar terlihat
+
+                    const visibleRatio = visibleHeight / height;
+
+                    if (visibleRatio >= 0.6) { // jika 60% atau lebih terlihat
+                        setActiveSection(sectionId);
+                        break;
+                    }
                 }
-            }
             }
         };
 
@@ -47,6 +56,16 @@ export default function NavbarDetailed() {
 
     return (
         <nav className={styles.detailed}>
+            <div className={styles.imageContainer}>
+                <Image
+                    onClick={() => scrollToSection('about')}
+                    className={`${styles.circleImage} ${activeSection === 'about' ? styles.active : ''}`}
+                    src="/user.png" // Ganti dengan path ke gambar kamu
+                    alt="Profile"
+                    width={32}
+                    height={32}
+                />
+            </div>
             <div className={styles.nav}>
                 <button 
                     onClick={() => scrollToSection('home')}
