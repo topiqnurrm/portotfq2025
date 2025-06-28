@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 0rem 0rem;
+  padding: 0rem 2vw;
   height: 7vh;
   border: 1px solid #000;
 }
@@ -17,6 +17,10 @@
   box-shadow: none;
   outline: none;
   font-family: "SansSerifFLF";
+}
+
+.nav button:hover {
+  color: #0070f3;
 }
 
 /* css active navbar */

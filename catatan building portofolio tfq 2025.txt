@@ -24,7 +24,19 @@ Contact
 
 --------------------
 
+padding :
+right/left : 1.5
+top/bottom : 3.5
 
+height = 100 - 14 = 86
+width = 100 - 6 = 94
+
+kenapa perhitungannya salah ya, aku udah ngitum widthnya pas tapi kenyataannya harus hapus padding right (1.5) dan juga ngurangi (1.5) width content.
+solusi : padding dari aboutnya dihilangin (kanan dan kiri), lalu untuk contentnya kurangi 1.5, untuk navleftnya tidak dikurangi
+hasil : kalau di kecilkan tetep bisa berkurang isi about e 
+.navleft : 18.8vw; .content : 73.7vw;
+
+--------------------
 
 
 
