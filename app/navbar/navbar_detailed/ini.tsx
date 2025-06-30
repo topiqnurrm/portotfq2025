@@ -54,6 +54,15 @@ export default function NavbarDetailed() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Menu items dengan nama untuk mapping icon
+    const menuItems = [
+        { name: 'Home', section: 'home' },
+        { name: 'About', section: 'about' },
+        { name: 'Projects', section: 'projects' },
+        { name: 'Services', section: 'services' },
+        { name: 'Contact', section: 'contact' }
+    ];
+
     return (
         <nav className={styles.detailed}>
             <div className={styles.imageContainer}>
@@ -66,46 +75,31 @@ export default function NavbarDetailed() {
                     height={32}
                 />
             </div>
-            <div className={styles.nav}>
-                <button 
-                    onClick={() => scrollToSection('home')}
-                    className={`${styles.navLink} ${activeSection === 'home' ? styles.active : ''}`}
-                >
-                Home
-                </button>
-            </div>
-            <div className={styles.nav}>
-                <button 
-                    onClick={() => scrollToSection('about')}
-                    className={`${styles.navLink} ${activeSection === 'about' ? styles.active : ''}`}
-                >
-                About
-                </button>
-            </div>
-            <div className={styles.nav}>
-                <button 
-                    onClick={() => scrollToSection('projects')}
-                    className={`${styles.navLink} ${activeSection === 'projects' ? styles.active : ''}`}
-                >
-                Projects
-                </button>
-            </div>
-            <div className={styles.nav}>
-                <button 
-                    onClick={() => scrollToSection('services')}
-                    className={`${styles.navLink} ${activeSection === 'services' ? styles.active : ''}`}
-                >
-                Services
-                </button>
-            </div>
-            <div className={styles.nav}>
-                <button 
-                    onClick={() => scrollToSection('contact')}
-                    className={`${styles.navLink} ${activeSection === 'contact' ? styles.active : ''}`}
-                >
-                Contact
-                </button>
-            </div>
+            
+            {menuItems.map((item) => {
+                const isActive = activeSection === item.section;
+                const iconSuffix = isActive ? "1" : "0";
+                
+                return (
+                    <div key={item.section} className={styles.nav}>
+                        <button 
+                            onClick={() => scrollToSection(item.section)}
+                            className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                        >
+                            <div className={styles.navContent}>
+                                <Image
+                                    src={`/menu/${item.name}${iconSuffix}.png`}
+                                    alt={`${item.name} icon`}
+                                    width={18}
+                                    height={18}
+                                    className={styles.navIcon}
+                                />
+                                <span className={styles.navText}>{item.name}</span>
+                            </div>
+                        </button>
+                    </div>
+                );
+            })}
         </nav>
     );
 }

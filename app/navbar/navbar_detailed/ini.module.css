@@ -6,6 +6,11 @@
   padding: 0rem 2vw;
   height: 7vh;
   border: 1px solid #000;
+  position: relative;
+}
+
+.nav {
+  position: relative;
 }
 
 .nav button {
@@ -17,29 +22,82 @@
   box-shadow: none;
   outline: none;
   font-family: "SansSerifFLF";
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
 }
 
 .nav button:hover {
   color: #0070f3;
+  transform: translateY(-2px);
 }
 
-/* css active navbar */
-.navLink.active {
-  color: #0070f3;
+/* Animated underline untuk semua nav items */
+.navLink {
   position: relative;
-  /* font-weight: 600; */
 }
 
-.navLink.active::after {
+.navLink::before {
   content: '';
   position: absolute;
   bottom: -2vh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(0);
   width: 80%;
   height: 2px;
-  background: #0070f3;
+  background: linear-gradient(90deg, #0070f3, #00a8ff);
   border-radius: 1px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.navLink:hover::before {
+  transform: translateX(-50%) scaleX(0.5);
+  opacity: 0.6;
+}
+
+/* Active state styling */
+.navLink.active {
+  color: #0070f3;
+  position: relative;
+  font-weight: 500;
+}
+
+.navLink.active::before {
+  transform: translateX(-50%) scaleX(1);
+  background: linear-gradient(90deg, #0070f3, #0070f3, #00a8ff);
+  box-shadow: 0 0 8px rgba(0, 112, 243, 0.4);
+  animation: activeGlow 2s ease-in-out infinite alternate;
+}
+
+/* Glow animation untuk active state */
+@keyframes activeGlow {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 112, 243, 0.4);
+    background: linear-gradient(90deg, #0070f3, #0070f3, #00a8ff);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(0, 112, 243, 0.6);
+    background: linear-gradient(90deg, #00a8ff, #0070f3, #0070f3);
+  }
+}
+
+/* Tambahan animasi untuk perpindahan nav */
+.navLink.active {
+  animation: activeNavBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes activeNavBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* css circle image */
@@ -54,4 +112,154 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.circleImage:hover {
+  transform: scale(1.1);
+  border-color: #0070f3;
+  box-shadow: 0 0 15px rgba(0, 112, 243, 0.3);
+}
+
+.circleImage.active {
+  border-color: #0070f3;
+  box-shadow: 0 0 20px rgba(0, 112, 243, 0.5);
+  animation: profilePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes profilePulse {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 112, 243, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 112, 243, 0.7);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .detailed {
+    padding: 0rem 1vw;
+  }
+  
+  .nav button {
+    font-size: 1rem;
+    padding: 0vh 0.5vw;
+  }
+  
+  .imageContainer {
+    padding-right: 5vw;
+  }
+  
+  .navLink::before {
+    bottom: -1.5vh;
+  }
+}
+
+
+/* Tambahkan CSS ini ke file CSS navbar Anda */
+
+/* Nav content layout dengan icon */
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navIcon {
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%); /* Default state - icon hitam */
+}
+
+.navText {
+  transition: all 0.3s ease;
+}
+
+/* Hover effects untuk icon dan text */
+.nav button:hover .navIcon {
+  transform: rotate(5deg) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(206deg) brightness(97%) contrast(97%); /* Warna biru #0070f3 */
+}
+
+.nav button:hover .navText {
+  text-shadow: 0 0 8px rgba(0, 112, 243, 0.3);
+}
+
+/* Active state untuk icon */
+.navLink.active .navIcon {
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(206deg) brightness(97%) contrast(97%); /* Warna biru #0070f3 */
+}
+
+/* Active text glow effect */
+.navLink.active .navText {
+  text-shadow: 0 0 10px rgba(0, 112, 243, 0.4);
+}
+
+/* Active hover state - icon dengan warna lebih cerah */
+.navLink.active:hover .navIcon {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(96%) saturate(4574%) hue-rotate(186deg) brightness(101%) contrast(101%); /* Warna biru lebih cerah #00a8ff */
+}
+
+/* Click animation untuk icon */
+.nav button:active .navIcon {
+  transform: scale(0.9) rotate(-2deg);
+  transition: transform 0.1s ease;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(206deg) brightness(97%) contrast(97%);
+}
+
+/* Floating animation untuk navbar hover */
+@keyframes navFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+.nav button:hover {
+  animation: navFloat 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments untuk icon */
+@media (max-width: 768px) {
+  .navContent {
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: center;
+  }
+  
+  .navIcon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .navText {
+    font-size: 0.8rem;
+  }
+  
+  /* Disable floating animation pada mobile */
+  .nav button:hover {
+    animation: none;
+  }
+}
+
+/* Untuk layar yang sangat kecil */
+@media (max-width: 480px) {
+  .navContent {
+    gap: 0.1rem;
+  }
+  
+  .navIcon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .navText {
+    font-size: 0.7rem;
+  }
 }
