@@ -146,9 +146,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     return (): void => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 0.85]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 0.85]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 0.85]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
     [0, 1.45, 0],
@@ -164,6 +164,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   }, [hovered, dragged]);
 
   useFrame((state, delta) => {
+    // Animasi ringan kanan-kiri jika tidak sedang di-drag
+    // if (!dragged && card.current) {
+    //   const gentleSwing = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
+    //   card.current.addForce({ x: gentleSwing, y: 0, z: 0 }, true);
+    // }
+
+    // Sisanya kode useFrame yang sudah ada...
     if (dragged && typeof dragged !== "boolean") {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
@@ -294,8 +301,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
           resolution={isSmall ? [1000, 2000] : [1000, 1000]}
           useMap
           map={texture}
-          repeat={[-4, 1]}
-          lineWidth={1}
+          repeat={[-2, 1]}
+          lineWidth={0.4}
         />
       </mesh>
     </>
