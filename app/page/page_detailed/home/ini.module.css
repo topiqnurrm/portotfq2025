@@ -8,27 +8,233 @@
   width: 100%;
   /* background-color: #000; */
   /* overflow-y: auto; */
+  padding-left: 45vw;
+  /* background-color: #000; */
 }
 
-.title {
+.title1 {
   font-size: 2.5rem;
-  color: #0070f3;
+  color: #666;
+  padding-top: 10vh;
+  z-index: 999;
+}
+
+.title2 {
+  font-size: 3rem;
+  color: #666;
+  margin-top: 1vh;
+  z-index: 999;
+}
+
+/* Tambahkan CSS ini ke file ini.module.css Anda */
+
+.title3 {
+  font-size: 3rem;
+  /* Hapus atau comment line ini: color: #007acc; */
+  
+  /* Gradient premium biru-hijau */
+  background: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  
+  /* Efek animasi melang-meling */
+  animation: gradientShift 3s ease-in-out infinite;
+  
+  margin-top: 1vh;
+  z-index: 999;
+  font-weight: 600; /* Menambah ketebalan font untuk efek premium */
+}
+
+/* Keyframes untuk animasi gradient melang-meling */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #666;
-  text-align: center;
-  max-width: 600px;
+  /* text-align: center; */
+  margin-top: 2vh;
+  /* border: 1px solid #000; */
+  z-index: 999;
 }
 
 .lanyardku {
   position: absolute;
   top: 7vh;
-  left: -80vw;
+  left: -75vw;
   width: 200%;
   height: 100%;
   /* border: 1px solid #000; */
   /* background-color: #000; */
   padding: 0;
+  z-index: 999;
+}
+
+/* Styles untuk typing animation */
+.roleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.typingText {
+  color: #007acc; /* Warna biru untuk teks yang diketik */
+  font-weight: 600;
+  min-height: 1.2em; /* Menjaga tinggi konsisten */
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: none;
+  width: 3px;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive design untuk mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  
+  .title1 {
+    font-size: 2rem;
+  }
+  
+  .title2 {
+    font-size: 2.5rem;
+  }
+  
+  .roleContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .subtitle {
+    margin-right: 0;
+  }
+}
+
+
+/* Social Media Menu Styles */
+.socialMenu {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-top: 3vh;
+  align-items: flex-start;
+  z-index: 999;
+}
+
+.socialItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialIcon {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Membuat gambar #666 */
+  transition: all 0.3s ease;
+}
+
+.socialItem:hover .socialIcon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(190deg) brightness(104%) contrast(97%);
+  /* Filter ini akan mengubah warna menjadi #007acc */
+}
+
+/* Efek hover untuk mengubah src gambar */
+.socialItem:hover .socialIcon[src="/home/wa0.png"] {
+  content: url("/home/wa1.png");
+}
+
+.socialItem:hover .socialIcon[src="/home/instagram0.png"] {
+  content: url("/home/instagram1.png");
+}
+
+.socialItem:hover .socialIcon[src="/home/linkedin0.png"] {
+  content: url("/home/linkedin1.png");
+}
+
+.socialItem:hover .socialIcon[src="/home/github0.png"] {
+  content: url("/home/github1.png");
+}
+
+/* About Me Button Styles */
+.buttonContainer {
+  margin-top: 7vh;
+  z-index: 999;
+}
+
+.aboutButton {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 2px solid #666;
+  color: #666;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  background-color: transparent;
+  font-family: 'sansserifflf';
+}
+
+.aboutButton:hover {
+  border-color: #007acc;
+  color: white;
+  background-color: #007acc;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+  .socialMenu {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 2vh;
+  }
+  
+  .socialIcon {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .buttonContainer {
+    margin-top: 3vh;
+  }
+  
+  .aboutButton {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
 }
