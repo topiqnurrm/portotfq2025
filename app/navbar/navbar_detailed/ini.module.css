@@ -5,7 +5,7 @@
   justify-content: space-around;
   padding: 0rem 2vw;
   height: 7vh;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   position: relative;
 }
 
@@ -41,7 +41,7 @@
 .navLink::before {
   content: '';
   position: absolute;
-  bottom: -2vh;
+  bottom: -1.8vh;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: 80%;
@@ -141,6 +141,7 @@
 @media (max-width: 768px) {
   .detailed {
     padding: 0rem 1vw;
+    height: 6vh; /* Tinggi navbar berkurang di tablet */
   }
   
   .nav button {
@@ -153,10 +154,9 @@
   }
   
   .navLink::before {
-    bottom: -1.5vh;
+    bottom: -0.3vh; /* Penyesuaian untuk tablet */
   }
 }
-
 
 /* Tambahkan CSS ini ke file CSS navbar Anda */
 
@@ -250,6 +250,10 @@
 
 /* Untuk layar yang sangat kecil */
 @media (max-width: 480px) {
+  .detailed {
+    height: 5vh; /* Tinggi navbar lebih kecil di mobile */
+  }
+  
   .navContent {
     gap: 0.1rem;
   }
@@ -261,5 +265,9 @@
   
   .navText {
     font-size: 0.7rem;
+  }
+  
+  .navLink::before {
+    bottom: -0.3vh; /* Penyesuaian untuk mobile kecil */
   }
 }
