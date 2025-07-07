@@ -278,3 +278,9 @@
     bottom: -0.3vh; /* Penyesuaian untuk mobile kecil */
   }
 }
+
+@media (max-width: 480px) and (min-height: 700px) {
+  .navLink::before {
+    bottom: -1vh; /* Turunkan garis bawah lebih jauh */
+  }
+}
