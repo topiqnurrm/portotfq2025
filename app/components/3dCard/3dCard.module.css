@@ -6,43 +6,36 @@
   align-items: center;
   min-height: 400px;
   padding: 2rem;
-  perspective: 1000px; /* Tambahkan perspective di container */
+  perspective: 1000px;
 }
 
 .card {
   width: 100%;
   max-width: 30rem;
   height: auto;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: transparent;
+  border: none;
   border-radius: 0.75rem;
   padding: 1.5rem;
   transform-style: preserve-3d;
   transition: all 0.3s ease-out;
   position: relative;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  overflow: visible; /* Penting: biarkan elemen keluar dari card */
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .card {
-    /* background: rgba(0, 0, 0, 0.2); */
-    background: transparent;
-    /* border-color: rgba(197, 24, 24, 0.2); */
-    border-color: #007acc;
-  }
-  
-  .cardHovered {
-    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.25);
-  }
+  cursor: default; /* Ubah ke default agar tidak ada perubahan cursor */
+  backdrop-filter: none;
+  overflow: visible;
 }
 
 .cardHovered {
-  /* box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15); */
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .cardHovered {
+    background: rgba(184, 184, 184, 0.2);
+    border-color: #007acc;
+  }
 }
 
 .cardContent {
@@ -60,6 +53,10 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,6 +74,10 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -87,6 +88,7 @@
 
 .imageContainer {
   width: 100%;
+  /* height: 50%; */
   margin: 1rem 0 5rem 0;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -100,18 +102,41 @@
 
 .cardImage {
   width: 100%;
-  height: 15rem;
+  height: 20vh;
+  /* height: 15rem; */
   object-fit: cover;
   border-radius: 0.75rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .cardHovered .cardImage {
-  box-shadow: 
-    0 35px 70px -12px rgba(0, 0, 0, 0.4),
-    0 20px 40px -5px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 0, 0, 0.1);
+  animation: colorfulShadow 3s infinite alternate;
+}
+
+@keyframes colorfulShadow {
+  0% {
+    box-shadow: 
+      0 35px 70px -12px rgba(0, 122, 204, 0.4),
+      0 20px 40px -5px rgba(0, 122, 204, 0.2),
+      0 0 0 1px rgba(0, 122, 204, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 35px 70px -12px rgba(0, 184, 148, 0.4),
+      0 20px 40px -5px rgba(0, 184, 148, 0.2),
+      0 0 0 1px rgba(0, 184, 148, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 35px 70px -12px rgba(9, 132, 227, 0.4),
+      0 20px 40px -5px rgba(9, 132, 227, 0.2),
+      0 0 0 1px rgba(9, 132, 227, 0.1);
+  }
 }
 
 .buttonContainer {
@@ -122,73 +147,68 @@
   transform-style: preserve-3d;
 }
 
-.primaryButton {
-  padding: 0.5rem 1rem;
-  border-radius: 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 400;
-  text-decoration: none;
-  color: #374151;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-@media (prefers-color-scheme: dark) {
-  .primaryButton {
-    color: #666;
-    font-size: 1rem;
-  }
-}
-
-.primaryButton:hover {
-  color: #000000;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .primaryButton:hover {
-    color: #007acc;
-    background: rgba(255, 255, 255, 0.1);
-    background-color: #ffffff;
-  }
-}
-
+/* PERBAIKAN: Reset semua default styling dan buat identik */
+.primaryButton,
 .secondaryButton {
+  /* Reset default styling */
+  all: unset;
+  
+  /* Custom styling */
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   background: #000000;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
-  border: none;
-  cursor: pointer;
+  cursor: pointer; /* Pastikan cursor pointer hanya pada button */
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   will-change: transform;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  
+  /* Font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
+  font-family: "SansSerifFlf", sans-serif;
+  
+  /* Ensure consistent appearance */
+  outline: none;
+  border: 1px solid transparent; /* Border transparan di state normal */
+  margin: 0;
+  vertical-align: baseline;
+  white-space: nowrap;
 }
 
 @media (prefers-color-scheme: dark) {
+  .primaryButton,
   .secondaryButton {
     background: #ffffff;
     color: #666;
+    border: 1px solid transparent; /* Border transparan di state normal untuk dark mode */
   }
 }
 
+.primaryButton:hover,
 .secondaryButton:hover {
   background: #374151;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.3);
+  cursor: pointer; /* Pastikan cursor tetap pointer saat hover */
 }
 
 @media (prefers-color-scheme: dark) {
+  .primaryButton:hover,
   .secondaryButton:hover {
     background: #f3f4f6;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #00b894;
+    cursor: pointer; /* Pastikan cursor tetap pointer saat hover */
   }
 }
 
