@@ -61,8 +61,9 @@ const ThreeDCard: React.FC<ThreeDCardProps> = ({
           <h2 
             className={styles.cardTitle}
             style={{ 
-              transform: isHovered ? 'translateZ(80px) scale(1.05)' : 'translateZ(0) scale(1)',
-              textShadow: isHovered ? '0 4px 10px rgba(0, 0, 0, 0.12)' : 'none'
+            //   transform: isHovered ? 'translateZ(80px) scale(1.05)' : 'translateZ(0) scale(1)',
+            //   textShadow: isHovered ? '0 4px 10px rgba(0, 0, 0, 0.12)' : 'none'
+              transform: isHovered ? 'translateZ(80px) scale(1.05)' : 'translateZ(0) scale(1)'
             }}
           >
             {title}
@@ -70,8 +71,9 @@ const ThreeDCard: React.FC<ThreeDCardProps> = ({
           <p 
             className={styles.cardSubtitle}
             style={{ 
-              transform: isHovered ? 'translateZ(60px) scale(1.02)' : 'translateZ(0) scale(1)',
-              textShadow: isHovered ? '0 4px 10px rgba(0, 0, 0, 0.12)' : 'none'
+            //   transform: isHovered ? 'translateZ(60px) scale(1.02)' : 'translateZ(0) scale(1)',
+            //   textShadow: isHovered ? '0 4px 10px rgba(0, 0, 0, 0.12)' : 'none'
+            transform: isHovered ? 'translateZ(60px) scale(1.02)' : 'translateZ(0) scale(1)'
             }}
           >
             {subtitle}
@@ -97,9 +99,9 @@ const ThreeDCard: React.FC<ThreeDCardProps> = ({
                     // className={styles.primaryButton}
                     className={styles.secondaryButton}
                     style={{ 
-                        transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)',
-                        boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.10)' : '0 1px 3px rgba(0, 0, 0, 0.06)',
-                        // border: '1px solid #00b894'
+                        // transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)',
+                        // boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.10)' : '0 1px 3px rgba(0, 0, 0, 0.06)',
+                        transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)'
                     }}
                     >
                     {buttonText}
@@ -112,8 +114,9 @@ const ThreeDCard: React.FC<ThreeDCardProps> = ({
                     // }}
                     className={styles.secondaryButton}
                     style={{ 
-                        transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)',
-                        boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.10)' : '0 1px 3px rgba(0, 0, 0, 0.06)'
+                        // transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)',
+                        // boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.10)' : '0 1px 3px rgba(0, 0, 0, 0.06)'
+                        transform: isHovered ? 'translateZ(70px) scale(1.05)' : 'translateZ(0) scale(1)'
                     }}
                     >
                     {secondaryButtonText}

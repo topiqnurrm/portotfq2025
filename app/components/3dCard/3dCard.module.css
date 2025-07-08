@@ -14,27 +14,80 @@
   max-width: 30rem;
   height: auto;
   background: transparent;
-  border: none;
+  border: 1px solid #007acc;
   border-radius: 0.75rem;
   padding: 1.5rem;
   transform-style: preserve-3d;
   transition: all 0.3s ease-out;
   position: relative;
-  cursor: default; /* Ubah ke default agar tidak ada perubahan cursor */
+  cursor: default;
   backdrop-filter: none;
   overflow: visible;
+  animation: rainbowBorderSmall 3s infinite linear;
 }
 
 .cardHovered {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* background: rgba(255, 255, 255, 0.1); */
+  background: transparent;
+  border: 2px solid #007acc;
   backdrop-filter: blur(10px);
+  animation: rainbowBorder 2s infinite linear;
+}
+
+@keyframes rainbowBorder {
+  0% {
+    border-color: #007acc;
+  }
+  33% {
+    border-color: #00b894;
+  }
+  66% {
+    border-color: #0984e3;
+  }
+  100% {
+    border-color: #007acc;
+  }
+}
+
+@keyframes rainbowText {
+  0% {
+    color: #007acc;
+  }
+  33% {
+    color: #00b894;
+  }
+  66% {
+    color: #0984e3;
+  }
+  100% {
+    color: #007acc;
+  }
+}
+
+@keyframes rainbowBorderSmall {
+  0% {
+    border-color: #007acc;
+  }
+  25% {
+    border-color: #00b894;
+  }
+  50% {
+    border-color: #0984e3;
+  }
+  75% {
+    border-color: #a29bfe;
+  }
+  100% {
+    border-color: #007acc;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .cardHovered {
-    background: rgba(184, 184, 184, 0.2);
-    border-color: #007acc;
+    /* background: rgba(184, 184, 184, 0.2); */
+    background: transparent;
+    border: 2px solid #007acc;
+    animation: rainbowBorder 2s infinite linear;
   }
 }
 
@@ -59,9 +112,17 @@
   backface-visibility: hidden;
 }
 
+.cardHovered .cardTitle {
+  animation: rainbowText 2s infinite linear;
+}
+
 @media (prefers-color-scheme: dark) {
   .cardTitle {
     color: #666;
+  }
+  
+  .cardHovered .cardTitle {
+    animation: rainbowText 2s infinite linear;
   }
 }
 
@@ -88,7 +149,6 @@
 
 .imageContainer {
   width: 100%;
-  /* height: 50%; */
   margin: 1rem 0 5rem 0;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -103,7 +163,6 @@
 .cardImage {
   width: 100%;
   height: 20vh;
-  /* height: 15rem; */
   object-fit: cover;
   border-radius: 0.75rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -160,7 +219,7 @@
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
-  cursor: pointer; /* Pastikan cursor pointer hanya pada button */
+  cursor: pointer;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   will-change: transform;
@@ -178,7 +237,7 @@
   
   /* Ensure consistent appearance */
   outline: none;
-  border: 1px solid transparent; /* Border transparan di state normal */
+  border: 1px solid transparent;
   margin: 0;
   vertical-align: baseline;
   white-space: nowrap;
@@ -189,7 +248,7 @@
   .secondaryButton {
     background: #ffffff;
     color: #666;
-    border: 1px solid transparent; /* Border transparan di state normal untuk dark mode */
+    border: 1px solid transparent;
   }
 }
 
@@ -198,7 +257,7 @@
   background: #374151;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.3);
-  cursor: pointer; /* Pastikan cursor tetap pointer saat hover */
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -208,7 +267,7 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.3);
     border: 1px solid #00b894;
-    cursor: pointer; /* Pastikan cursor tetap pointer saat hover */
+    cursor: pointer;
   }
 }
 

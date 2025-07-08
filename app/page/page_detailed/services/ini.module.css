@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 0rem 0rem;
   height: 93vh;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding-top: 3.5vh;
 }
 
@@ -19,6 +19,7 @@
   color: #666;
   text-align: center;
   width: 100%;
+  padding: 0 20vw
 }
 
 .container::before {
@@ -60,24 +61,209 @@
   height: 100%;
 }
 
-/* Responsive design */
+/* RESPONSIVE DESIGN */
+
+/* Tablet - 768px */
 @media (max-width: 768px) {
   .container {
-    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0rem;
+    /* height: 93vh; */
+    height: 93vh;
+    /* border: 1px solid #000; */
+    padding-top: 3.5vh;
   }
   
   .title {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
   .subtitle {
     font-size: 1rem;
-    padding: 0 1rem;
+    padding: 0 5vw;
+    /* margin-bottom: 1rem; */
+    line-height: 1.5;
+  }
+
+  .cardcontainer {
+    flex-direction: column;
+    /* height: 70vh; */
+    /* padding: 1rem; */
+    gap: 20px;
+    /* align-items: stretch; */
+    max-height: auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* padding-top: 40%; */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  
+  /* Scrollbar styling untuk navleft */
+  .cardcontainer::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .cardcontainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0070f3, #00a8ff);
+    border-radius: 2px;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #005bb5, #0070f3);
   }
   
   .cardSection {
-    padding: 1rem;
+    width: 80%;
+    height: 600px;
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #000; */
   }
 }
 
+/* Mobile - 480px */
+@media (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0rem;
+    /* height: 93vh; */
+    height: 93vh;
+    /* border: 1px solid #000; */
+    padding-top: 3.5vh;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    /* margin-bottom: 1.5rem; */
+    line-height: 1.4;
+  }
+  
+  .cardcontainer {
+    flex-direction: column;
+    /* height: auto; */
+    /* padding: 0.5rem; */
+    gap: 20px;
+    /* align-items: stretch; */
+    max-height: auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* padding-top: 40%; */
+    /* margin-bottom: 20px; */
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  
+  /* Scrollbar styling untuk navleft */
+  .cardcontainer::-webkit-scrollbar {
+    width: 4px;
+  }
 
+  .cardcontainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0070f3, #00a8ff);
+    border-radius: 2px;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #005bb5, #0070f3);
+  }
+
+  .cardSection {
+    width: 100%;
+    height: 600px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Mobile Tall - 480px width with minimum 700px height */
+@media (max-width: 480px) and (min-height: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0rem;
+    /* height: 93vh; */
+    height: 93vh;
+    /* border: 1px solid #000; */
+    padding-top: 2vh;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    /* margin-bottom: 1.5rem; */
+    line-height: 1.4;
+  }
+  
+  .cardcontainer {
+    flex-direction: column;
+    /* height: auto; */
+    /* padding: 0.5rem; */
+    gap: 20px;
+    /* align-items: stretch; */
+    max-height: auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* padding-top: 40%; */
+    /* margin-bottom: 20px; */
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  /* Scrollbar styling untuk navleft */
+  .cardcontainer::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .cardcontainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0070f3, #00a8ff);
+    border-radius: 2px;
+  }
+
+  .cardcontainer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #005bb5, #0070f3);
+  }
+
+  .cardSection {
+    width: 100%;
+    height: 600px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+}

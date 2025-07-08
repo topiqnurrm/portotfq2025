@@ -9,7 +9,7 @@ export default function Services() {
       <h1 className={styles.title}>Services</h1>
       <p className={styles.subtitle}>
         Menyediakan layanan pembuatan website modern, desain antarmuka yang user-friendly, 
-        <br/>serta desain grafis kreatif untuk mendukung identitas dan kebutuhan digital Anda.
+        serta desain grafis kreatif untuk mendukung identitas dan kebutuhan digital Anda.
       </p>
       <div className={styles.cardcontainer}>
         <div className={styles.cardSection}>
