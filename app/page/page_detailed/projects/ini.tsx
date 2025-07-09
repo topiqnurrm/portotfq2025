@@ -6,6 +6,8 @@ export default function Projects() {
       <h1 className={styles.title}>Projects</h1>
       <p className={styles.subtitle}>
         Ini adalah halaman default menggunakan TypeScript dan CSS terpisah.
+
+        apakah sudah terlihat di vercel uhuy
       </p>
     </section>
   );
