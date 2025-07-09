@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import styles from "./ini.module.css";
 
 import Lanyard from "@/app/components/Lanyard/Lanyard";
@@ -71,7 +72,7 @@ export default function Home() {
 
     const typingTimer = setTimeout(handleTyping, typeSpeed);
     return () => clearTimeout(typingTimer);
-  }, [currentText, currentIndex, isDeleting, typeSpeed]);
+  }, [currentText, currentIndex, isDeleting, typeSpeed, roles]); // Tambahkan 'roles' ke dependency array
 
   // Fungsi untuk memulai animasi otomatis
   const startAutoAnimation = () => {
@@ -116,7 +117,7 @@ export default function Home() {
         <h1 className={styles.title1}>Hello, It&apos;s me</h1>
         <h1 className={styles.title3}>Taufiq Nurrohman</h1>
         <div className={styles.roleContainer}>
-          <h1 className={styles.title2}>I'am a  </h1>
+          <h1 className={styles.title2}>I&apos;am a  </h1>
           <h1 className={styles.title2}></h1>
           <h1 className={styles.title2 + " " + styles.typingText}>
             {currentText}
@@ -129,16 +130,40 @@ export default function Home() {
         </p>
         <div className={styles.socialMenu}>
           <a href="https://wa.me/6288232363332" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-            <img src="/home/wa0.png" alt="WhatsApp" className={styles.socialIcon} />
+            <Image 
+              src="/home/wa0.png" 
+              alt="WhatsApp" 
+              width={40} 
+              height={40} 
+              className={styles.socialIcon} 
+            />
           </a>
           <a href="https://instagram.com/topiqnurrm" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-            <img src="/home/instagram0.png" alt="Instagram" className={styles.socialIcon} />
+            <Image 
+              src="/home/instagram0.png" 
+              alt="Instagram" 
+              width={40} 
+              height={40} 
+              className={styles.socialIcon} 
+            />
           </a>
           <a href="https://www.linkedin.com/in/topiqnurrm/" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-            <img src="/home/linkedin0.png" alt="LinkedIn" className={styles.socialIcon} />
+            <Image 
+              src="/home/linkedin0.png" 
+              alt="LinkedIn" 
+              width={40} 
+              height={40} 
+              className={styles.socialIcon} 
+            />
           </a>
           <a href="https://github.com/topiqnurrm" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-            <img src="/home/github0.png" alt="GitHub" className={styles.socialIcon} />
+            <Image 
+              src="/home/github0.png" 
+              alt="GitHub" 
+              width={40} 
+              height={40} 
+              className={styles.socialIcon} 
+            />
           </a>
         </div>
 

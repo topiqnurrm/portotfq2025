@@ -108,8 +108,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
 
-  const segmentProps: any = {
-    type: "dynamic" as RigidBodyProps["type"],
+  const segmentProps: Omit<RigidBodyProps, "children" | "ref"> = {
+    type: "dynamic",
     canSleep: true,
     colliders: false,
     angularDamping: 4,
@@ -259,15 +259,15 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={(e: any) => {
-              e.target.releasePointerCapture(e.pointerId);
+            onPointerUp={(e: React.PointerEvent<HTMLElement>) => {
+              (e.target as HTMLElement).releasePointerCapture(e.pointerId);
               drag(false);
             }}
-            onPointerDown={(e: any) => {
-              e.target.setPointerCapture(e.pointerId);
+            onPointerDown={(e: React.PointerEvent<HTMLElement>) => {
+              (e.target as HTMLElement).setPointerCapture(e.pointerId);
               drag(
                 new THREE.Vector3()
-                  .copy(e.point)
+                  .copy((e as any).point)
                   .sub(vec.copy(card.current.translation()))
               );
             }}

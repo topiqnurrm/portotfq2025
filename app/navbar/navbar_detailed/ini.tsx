@@ -32,7 +32,6 @@ export default function NavbarDetailed() {
                     const height = rect.height;
 
                     // Hitung bagian yang terlihat
-                    const visibleTop = Math.max(0, 0 - rect.top); // berapa bagian atas yang sudah masuk
                     const visibleBottom = Math.min(window.innerHeight, rect.bottom); // sampai mana bagian bawah terlihat
 
                     const visibleHeight = visibleBottom - Math.max(rect.top, 0); // bagian yang benar-benar terlihat
