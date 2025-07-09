@@ -142,6 +142,8 @@
     height: 93vh;
     /* border: 1px solid #000; */
     padding-top: 3.5vh;
+    margin: 0;
+    padding-bottom: 0;
   }
   
   .title {
@@ -159,7 +161,7 @@
   
   .cardcontainer {
     flex-direction: column;
-    /* height: auto; */
+    height: 100%;
     /* padding: 0.5rem; */
     gap: 20px;
     /* align-items: stretch; */
@@ -167,8 +169,8 @@
     overflow-y: auto;
     box-sizing: border-box;
     /* padding-top: 40%; */
-    /* margin-bottom: 20px; */
-    /* padding-bottom: 20px; */
+    margin-bottom: 0px;
+    padding-bottom: 20px;
     padding-top: 20px;
   }
   
@@ -210,6 +212,8 @@
     height: 93vh;
     /* border: 1px solid #000; */
     padding-top: 2vh;
+    margin: 0;
+    padding-bottom: 0;
   }
   
   .title {
@@ -227,7 +231,7 @@
   
   .cardcontainer {
     flex-direction: column;
-    /* height: auto; */
+    height: 100%;
     /* padding: 0.5rem; */
     gap: 20px;
     /* align-items: stretch; */
@@ -235,8 +239,8 @@
     overflow-y: auto;
     box-sizing: border-box;
     /* padding-top: 40%; */
-    /* margin-bottom: 20px; */
-    /* padding-bottom: 20px; */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     padding-top: 20px;
   }
 

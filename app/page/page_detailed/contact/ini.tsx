@@ -6,6 +6,8 @@ export default function Contact() {
       <h1 className={styles.title}>Contact</h1>
       <p className={styles.subtitle}>
         Ini adalah halaman default menggunakan TypeScript dan CSS terpisah.
+
+        ini  apa benar 
       </p>
     </section>
   );
