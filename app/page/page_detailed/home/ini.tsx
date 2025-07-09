@@ -113,7 +113,7 @@ export default function Home() {
         />    
       </div> 
       <div className={styles.wadahku}>
-        <h1 className={styles.title1}>Hello, It's me</h1>
+        <h1 className={styles.title1}>Hello, It&apos;s me</h1>
         <h1 className={styles.title3}>Taufiq Nurrohman</h1>
         <div className={styles.roleContainer}>
           <h1 className={styles.title2}>I'am a  </h1>

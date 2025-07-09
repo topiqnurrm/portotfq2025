@@ -292,9 +292,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
         </RigidBody>
       </group>
       <mesh ref={band}>
-        {/* @ts-ignore */}
+        {/* @ts-expect-error */}
         <meshLineGeometry />
-        {/* @ts-ignore */}
+        {/* @ts-expect-error */}
         <meshLineMaterial
           color="white"
           depthTest={false}

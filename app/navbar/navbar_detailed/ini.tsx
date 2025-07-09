@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./ini.module.css";
-import Link from "next/link";
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
