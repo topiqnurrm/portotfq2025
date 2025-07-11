@@ -21,7 +21,7 @@
 }
 
 .nav button {
-  color: #000000;
+  color: #666;
   padding: 0vh 1vw;
   font-size: 1.2rem;
   background: none;
@@ -178,7 +178,7 @@
 .navIcon {
   transition: all 0.3s ease;
   flex-shrink: 0;
-  filter: brightness(0) saturate(100%); /* Default state - icon hitam */
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Warna #666 */
 }
 
 .navText {

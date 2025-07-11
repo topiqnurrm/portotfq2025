@@ -20,7 +20,7 @@ export default function Services() {
 
   return (
     <section id="services" className={styles.container}>
-      <h1 className={styles.title}>Services</h1>
+      <h1 className={styles.title}>My Services</h1>
       <p className={styles.subtitle}>
         Menyediakan layanan pembuatan website modern, desain antarmuka yang user-friendly, 
         serta desain grafis kreatif untuk mendukung identitas dan kebutuhan digital Anda.

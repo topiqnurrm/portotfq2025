@@ -41,7 +41,7 @@
 }
 
 .navleft button {
-  color: #000000;
+  color: #666;
   font-size: 1.1rem; /* Dikecilkan sedikit */
   background: none;
   border: none;
@@ -392,7 +392,7 @@
 .menuIcon {
   transition: all 0.3s ease;
   flex-shrink: 0;
-  filter: brightness(0) saturate(100%); /* Membuat icon menjadi hitam */
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Warna #666 */
 }
 
 /* Hover state - icon berubah ke biru */
