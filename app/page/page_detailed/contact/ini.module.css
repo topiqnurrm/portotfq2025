@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-bottom: 3.5vh;
   height: 93vh;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding-top: 3.5vh;
   padding-bottom: 3.5vh;
   justify-content: center;
@@ -22,19 +22,40 @@
 .contentArea {
   width: 65%;
   padding: 20px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 .sosmed {
   width: 25%;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: center;
   z-index: 999;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   justify-content: flex-start;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* Scrollbar styling untuk navleft */
+.sosmed::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sosmed::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sosmed::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070f3, #00a8ff);
+  border-radius: 2px;
+}
+
+.sosmed::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #005bb5, #0070f3);
 }
 
 .iniin {
@@ -43,7 +64,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 .sosmed .navTitle {
@@ -67,38 +88,104 @@
 
 .tabContainer {
   display: flex;
-  gap: 2rem;
-  width: 90%;
+  gap: auto;
+  width: 100%;
   align-items: center;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 .tabButton {
+  display: inline-block;
   padding: 8px 16px;
   border: 1px solid #ccc;
-  background-color: transparent;
-  cursor: pointer;
-  border-radius: 4px;
+  border-image: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%) 1;
+  color: #666;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
   transition: all 0.3s ease;
+  /* border-radius: 4px; */
+  background-color: transparent;
+  font-family: 'sansserifflf';
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
   flex: 1;
 }
 
+.tabButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.tabButton:hover::before {
+  opacity: 1;
+}
+
 .tabButton:hover {
-  background-color: #f0f0f0;
+  color: white;
+  border-image: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%) 1;
 }
 
 .tabButton.active {
-  background-color: #007acc;
   color: white;
   border-color: #007acc;
+  background: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.tabButton.active:hover {
+  animation: gradientShiftFast 1.5s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientShiftFast {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .socialLinks {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3rem;
   width: 100%;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
+  padding-top: 20px;
 }
 
 .socialItem {
@@ -148,22 +235,68 @@
   content: url("/home/github1.png");
 }
 
+.kontakmiring {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.sc1 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.sc2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .wadah {
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
   }
   
   .contentArea {
     width: 100%;
     margin-right: 0;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    height: 70%;
+  }
+
+  .kontakmiring {
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .tabContainer {
+    flex-direction: row;
+    /* gap: 10px; */
+    width: 50%;
+  }
+
+  .tabButton {
+    padding: 10px 14px;
+    font-size: 0.95rem;
   }
   
   .sosmed {
     width: 100%;
     gap: 1.5rem;
+    padding: 20px 20px 0 20px;
+    height: 30%;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: center;
+    align-items: center;
   }
   
   .container {
@@ -174,6 +307,20 @@
   
   .socialLinks {
     gap: 1rem;
+    flex-direction: row;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sc1 {
+    gap: 0.5rem;
+    /* border: 1px solid #000; */
+  }
+
+  .sc2 {
+    gap: 0.5rem;
+    /* border: 1px solid #000; */
   }
   
   .sosmed p {
@@ -186,80 +333,135 @@
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 15px;
-    margin-bottom: 2vh;
-  }
-  
   .wadah {
-    width: 100%;
-    gap: 15px;
+    gap: 0;
   }
-  
+
   .contentArea {
-    padding: 15px;
+    height: 80%;
   }
   
   .sosmed {
-    padding: 15px;
     gap: 1rem;
+    padding: 10px 20px 0 20px;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .tabContainer {
-    flex-direction: column;
-    gap: 8px;
+
+  .sosmed .navTitle {
+    font-size: 1rem;
+    /* width: 8vw; */
+    padding: 0;
+    margin: 0;
   }
-  
-  .tabButton {
-    padding: 10px 12px;
-    font-size: 0.9rem;
+
+  .sosmed .navSubtitle {
+    font-size: 0.7rem;
+    /* width: 8vw; */
+    padding: 0;
+    margin: 0;
   }
   
   .socialLinks {
-    gap: 0.8rem;
+    gap: 1rem;
+  }
+
+  .kontakmiring {
+    gap: 1rem;
+  }
+
+  .iniin {
+    width: 50vw;
+    justify-content: center;
   }
   
-  .socialItem {
+  .tabContainer {
+    display: flex;
     flex-direction: row;
-    align-items: center;
+    width: 100%;
+    gap: 0;
   }
   
-  .socialIcon {
-    width: 25px;
-    height: 25px;
+  .tabButton {
+    padding: 5px 0;
+    font-size: 1rem;
   }
-  
-  .sosmed p {
-    font-size: 0.9rem;
-    padding-left: 8px;
+
+  .socialItem .socialIcon {
+    width: 20px;
+    height: 20px;
   }
-  
-  .contactTitle {
-    font-size: 1.2rem;
+
+  .socialItem p {
+    font-size: 0.80rem;
+    padding-left: 7px;
   }
 }
 
 @media (max-width: 480px) and (min-height: 700px) {
-  .container {
-    min-height: 85vh;
-    padding: 20px;
+  .wadah {
+    gap: 0;
+  }
+
+  .contentArea {
+    height: 80%;
   }
   
   .sosmed {
-    gap: 1.5rem;
-    padding: 20px;
+    gap: 1rem;
+    padding: 10px 20px 0 20px;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sosmed .navTitle {
+    font-size: 1rem;
+    /* width: 8vw; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .sosmed .navSubtitle {
+    font-size: 0.7rem;
+    /* width: 8vw; */
+    padding: 0;
+    margin: 0;
   }
   
   .socialLinks {
-    gap: 1.2rem;
+    gap: 1rem;
+  }
+
+  .kontakmiring {
+    gap: 1rem;
+  }
+
+  .iniin {
+    width: 50vw;
+    justify-content: center;
   }
   
   .tabContainer {
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
   }
   
   .tabButton {
-    padding: 12px 16px;
+    padding: 5px 0;
     font-size: 1rem;
+  }
+
+  .socialItem .socialIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .socialItem p {
+    font-size: 0.80rem;
+    padding-left: 7px;
   }
 }
