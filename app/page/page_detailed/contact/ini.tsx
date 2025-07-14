@@ -24,14 +24,14 @@ export default function Contact() {
             
             <div className={styles.tabContainer}>
               <button 
-                className={`${styles.tabButton} ${activeTab === 'input' ? styles.active : ''}`}
-                onClick={() => setActiveTab('input')}
+                className={`${styles.tabButton} ${activeTab === 'komen' ? styles.active : ''}`}
+                onClick={() => setActiveTab('komen')}
               >
                 Comment
               </button>
               <button 
-                className={`${styles.tabButton} ${activeTab === 'komen' ? styles.active : ''}`}
-                onClick={() => setActiveTab('komen')}
+                className={`${styles.tabButton} ${activeTab === 'input' ? styles.active : ''}`}
+                onClick={() => setActiveTab('input')}
               >
                 Submit
               </button>
