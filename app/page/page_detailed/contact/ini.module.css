@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-bottom: 3.5vh;
   height: 93vh;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   padding-top: 3.5vh;
   padding-bottom: 3.5vh;
   justify-content: center;
@@ -17,12 +17,14 @@
   height: 100%;
   justify-content: center;
   /* align-items: center; */
+  border: 1px solid #000;
 }
 
 .contentArea {
   width: 65%;
   padding: 20px;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
+  height: 100%;
 }
 
 .sosmed {
@@ -34,9 +36,9 @@
   gap: 2rem;
   align-items: center;
   z-index: 999;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   justify-content: flex-start;
-  max-height: 100%;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -59,12 +61,13 @@
 }
 
 .iniin {
-  padding: 0 1vw;
-  text-align: center;
+  padding: 0 0;
+  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   /* border: 1px solid #000; */
+  width: 100%;
 }
 
 .sosmed .navTitle {
@@ -83,7 +86,8 @@
   margin: 0;
   font-style: italic;
   opacity: 0.8;
-  padding-right: 10px;
+  /* padding-right: 10px; */
+  padding: 0;
 }
 
 .tabContainer {
@@ -204,6 +208,13 @@
   transition: all 0.3s ease;
 }
 
+.socialIcon2 {
+  width: 30px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  transition: all 0.3s ease;
+}
+
 .sosmed p {
   color: #666;
   padding-left: 10px;
@@ -215,12 +226,13 @@
   color: #007acc;
 }
 
-.socialItem:hover .socialIcon {
+.socialItem:hover .socialIcon,
+.socialItem:hover .socialIcon2 {
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(190deg) brightness(104%) contrast(97%);
 }
 
-.socialItem:hover .socialIcon[src="/home/wa0.png"] {
-  content: url("/home/wa1.png");
+.socialItem:hover .socialIcon2[src="/home/email0.png"] {
+  content: url("/home/email1.png");
 }
 
 .socialItem:hover .socialIcon[src="/home/instagram0.png"] {
@@ -252,47 +264,64 @@
 .sc2 {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 5rem;
   align-items: flex-start;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5vh;
+    height: 93vh;
+    border: 1px solid #000;
+    padding-top: 3.5vh;
+    padding-bottom: 3.5vh;
+    justify-content: center;
+    align-items: center;
+  }
+
   .wadah {
     flex-direction: column;
     gap: 0;
+    margin: 0;
+    padding: 0;
   }
   
   .contentArea {
     width: 100%;
     margin-right: 0;
     /* margin-bottom: 20px; */
-    height: 70%;
+    height: 75%;
+    /* max-height: 60vh; */
+    margin: 0;
   }
 
   .kontakmiring {
     width: 100%;
     flex-direction: row;
-    gap: 1rem;
+    /* gap: 10px; */
     justify-content: center;
   }
 
   .tabContainer {
     flex-direction: row;
     /* gap: 10px; */
-    width: 50%;
+    width: 35vw;
+    /* margin-right: 1.5vh; */
   }
 
   .tabButton {
-    padding: 10px 14px;
+    padding: 5px 14px;
     font-size: 0.95rem;
   }
   
   .sosmed {
     width: 100%;
-    gap: 1.5rem;
-    padding: 20px 20px 0 20px;
-    height: 30%;
+    gap: 1rem;
+    padding: 5px 20px 0 20px;
+    height: 25%;
     align-items: center;
     /* justify-content: center; */
     justify-content: center;
@@ -306,7 +335,8 @@
   }
   
   .socialLinks {
-    gap: 1rem;
+    /* gap: 1rem; */
+    gap: 10vw;
     flex-direction: row;
     padding: 0;
     justify-content: center;
@@ -319,7 +349,7 @@
   }
 
   .sc2 {
-    gap: 0.5rem;
+    gap: 1rem;
     /* border: 1px solid #000; */
   }
   
@@ -330,9 +360,42 @@
   .contactTitle {
     font-size: 1.3rem;
   }
+
+  .iniin {
+    width: 30vw;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .socialItem .socialIcon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .socialItem .socialIcon2 {
+    width: 25px;
+    height: 15px;
+  }
+
+  .socialItem p {
+    font-size: 0.9rem;
+    padding-left: 7px;
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5vh;
+    height: 93vh;
+    border: 1px solid #000;
+    padding-top: 3.5vh;
+    padding-bottom: 3.5vh;
+    justify-content: center;
+    align-items: center;
+  }
+
   .wadah {
     gap: 0;
   }
@@ -368,7 +431,7 @@
   }
 
   .kontakmiring {
-    gap: 1rem;
+    gap: 0rem;
   }
 
   .iniin {
@@ -391,6 +454,11 @@
   .socialItem .socialIcon {
     width: 20px;
     height: 20px;
+  }
+
+  .socialItem .socialIcon2 {
+    width: 20px;
+    height: 10px;
   }
 
   .socialItem p {
@@ -400,6 +468,18 @@
 }
 
 @media (max-width: 480px) and (min-height: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5vh;
+    height: 93vh;
+    border: 1px solid #000;
+    padding-top: 3.5vh;
+    padding-bottom: 3.5vh;
+    justify-content: center;
+    align-items: center;
+  }
+
   .wadah {
     gap: 0;
   }
@@ -435,7 +515,7 @@
   }
 
   .kontakmiring {
-    gap: 1rem;
+    gap: 0rem;
   }
 
   .iniin {
@@ -458,6 +538,11 @@
   .socialItem .socialIcon {
     width: 20px;
     height: 20px;
+  }
+
+  .socialItem .socialIcon2 {
+    width: 20px;
+    height: 10px;
   }
 
   .socialItem p {

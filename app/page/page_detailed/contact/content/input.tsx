@@ -83,7 +83,7 @@ export default function Input() {
 
         {/* Star Rating */}
         <div className={styles.formGroup2}>
-          <label className={styles.label2}>Rating (1-5 bintang)</label>
+          <label className={styles.label2}>Rating</label>
           <div className={styles.ratingContainer}>
             <div className={styles.starsContainer}>
               {renderStars()}
@@ -101,7 +101,7 @@ export default function Input() {
             value={formData.comment}
             onChange={(e) => handleInputChange('comment', e.target.value)}
             className={`${styles.input} ${styles.textarea}`}
-            placeholder="Tuliskan komentar atau feedback Anda di sini..."
+            placeholder="Tulis komentar ..."
             rows={4}
             required
           />
@@ -111,13 +111,15 @@ export default function Input() {
         </div>
 
         {/* Submit Button */}
-        <button
-          type="button"
-          onClick={handleSubmit}
-          className={styles.submitButton}
-        >
-          Kirim Data
-        </button>
+        <div className={styles.submitya}>
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className={styles.submitButton}
+          >
+            Kirim Data
+          </button>
+        </div>
       </div>
 
       {/* Preview Data */}

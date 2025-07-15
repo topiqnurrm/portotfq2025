@@ -8,6 +8,9 @@
   gap: 0px;
   /* font-family: var(--font-geist-sans); */
   font-family: "SansSerifFLF";
+  height: 93vh;
+  /* border: 1px solid #1500ff; */
+  /* overflow-y: auto; */
 }
 
 .main {
@@ -16,7 +19,9 @@
   gap: 0px;
   /* grid-row-start: 2; */
   padding: 0px;
-  /* border: 1px solid #000; */
+  /* border: 1px solid #ff0000; */
+  /* height: 100%; */
+  /* overflow-y: auto; */
 }
 
 /* .footer {
@@ -24,3 +29,58 @@
   display: flex;
   gap: 24px;
 } */
+
+/* Scrollbar styling untuk navleft */
+.page::-webkit-scrollbar {
+  width: 4px;
+}
+
+.page::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.page::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070f3, #00a8ff);
+  border-radius: 2px;
+}
+
+.page::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #005bb5, #0070f3);
+}
+
+/* Scrollbar styling untuk navleft */
+.main::-webkit-scrollbar {
+  width: 4px;
+}
+
+.main::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070f3, #00a8ff);
+  border-radius: 2px;
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #005bb5, #0070f3);
+}
+
+
+@media (max-width: 768px) {
+  .page {
+    height: 93vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    height: 93vh;
+  }
+}
+
+@media (max-width: 480px) and (min-height: 700px) {
+  .page {
+    height: 93vh;
+  }
+}

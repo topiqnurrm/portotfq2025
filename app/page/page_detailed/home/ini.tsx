@@ -128,8 +128,8 @@ export default function Home() {
           satu inovasi, dan satu tekad tanpa batas.
         </p>
         <div className={styles.socialMenu}>
-          <a href="https://wa.me/6288232363332" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-            <img src="/home/wa0.png" alt="WhatsApp" className={styles.socialIcon} />
+          <a href="mailto:topiqnurrm@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
+            <img src="/home/email0.png" alt="Email" className={styles.socialIcon2} />
           </a>
           <a href="https://instagram.com/topiqnurrm" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
             <img src="/home/instagram0.png" alt="Instagram" className={styles.socialIcon} />

@@ -1,4 +1,4 @@
-/* Container - matches the main contentArea styling */
+/* === Container & Form === */
 .container {
   width: 100%;
   height: 100%;
@@ -9,10 +9,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px solid #000;
+  border: 1px solid #000000;
 }
 
-/* Form */
 .form {
   display: flex;
   flex-direction: column;
@@ -21,13 +20,12 @@
   margin: 0 auto;
 }
 
-/* Form Group */
 .formGroup {
   display: flex;
   flex-direction: column;
 }
 
-/* Label - matches the design theme */
+/* === Label === */
 .label {
   display: block;
   margin-bottom: 10px;
@@ -38,63 +36,68 @@
   letter-spacing: 0.3px;
 }
 
-/* Input Base - styled to match the theme */
+/* === Input === */
 .input {
   width: 100%;
   padding: 14px 18px;
-  border: 1px solid #666;
+  border: 1px solid #999;
   border-radius: 8px;
   font-size: 1rem;
   font-family: 'SansSerifFLF', sans-serif;
-  /* transition: all 0.3s ease; */
   outline: none;
   box-sizing: border-box;
-  background-color: #fff;
-  position: relative;
-  padding: 10px;
+  background-color: transparent;
   color: #666;
   letter-spacing: 0.3px;
+  transition: background-color 0s, color 0s;
 }
 
+/* === Autofill Fix (Chrome/Edge) === */
+.input:-webkit-autofill,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #666 !important;
+  caret-color: #666 !important;
+  transition: background-color 9999s ease-in-out 0s !important;
+}
+
+/* Focus State */
 .input:focus {
   border-color: #0070f3;
-  /* box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1); */
-  /* transform: translateY(-1px); */
 }
 
+/* Placeholder */
 .input::placeholder {
   color: #999;
   font-family: 'SansSerifFLF', sans-serif;
 }
 
-/* Scrollbar styling untuk navleft */
+/* Scrollbar for .container */
 .container::-webkit-scrollbar {
   width: 4px;
 }
-
 .container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 .container::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #0070f3, #00a8ff);
   border-radius: 2px;
 }
-
 .container::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #005bb5, #0070f3);
 }
 
-/* Verification Input - monospace styling */
+/* Verification Input */
 .verificationInput {
   font-family: 'SansSerifFLF', sans-serif;
-  /* text-align: center; */
   font-size: 1rem;
   letter-spacing: 8px;
-  /* font-weight: bold; */
-  /* background: linear-gradient(135deg, rgba(0, 112, 243, 0.05) 0%, rgba(0, 184, 148, 0.05) 50%, rgba(9, 132, 227, 0.05) 100%); */
 }
 
+/* Group 2 */
 .formGroup2 {
   display: flex;
   flex-direction: row;
@@ -115,22 +118,24 @@
 
 /* Textarea */
 .textarea {
+  height: 60px;
   min-height: 60px;
+  max-height: 120px;
   resize: vertical;
   font-family: 'SansSerifFLF', sans-serif;
   line-height: 1.5;
 }
 
-/* Help Text - matches theme colors */
+/* Help Text */
 .helpText {
   font-size: 12px;
   color: #666;
   margin-top: 6px;
-  font-style: italic;
+  font-family: 'SansSerifFLF', sans-serif;
   opacity: 0.8;
 }
 
-/* Rating Container */
+/* Rating */
 .ratingContainer {
   display: flex;
   align-items: center;
@@ -145,27 +150,19 @@
   padding-top: -20px;
 }
 
-/* Star Styling - matches the theme */
 .star {
   font-size: 28px;
   cursor: pointer;
   color: #ddd;
-  transition: all 0.2s ease;
   user-select: none;
   position: relative;
 }
-
 .star:hover {
-  color: #ffd700;
-  transform: scale(1.1);
+  color: #00a8ff;
 }
-
 .starActive {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  color: #00a8ff;
 }
-
-/* Rating Text - matches theme typography */
 .ratingText {
   font-size: 14px;
   color: #666;
@@ -173,16 +170,20 @@
   font-family: 'SansSerifFLF', sans-serif;
 }
 
-/* Submit Button - matches the tab button styling */
-.submitButton {
+/* Submit */
+.submitya {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  padding: 15px 20px;
-  border: 2px solid transparent;
-  border-image: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%) 1;
-  background: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+}
+
+.submitButton {
+  width: 60%;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  background: transparent;
   background-size: 200% 200%;
-  color: white;
-  border-radius: 8px;
+  color: #666;
   font-size: 16px;
   font-weight: 600;
   font-family: 'SansSerifFLF', sans-serif;
@@ -192,7 +193,8 @@
   margin-top: 20px;
   position: relative;
   overflow: hidden;
-  animation: gradientShift 3s ease-in-out infinite;
+  border-image: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  border-image-slice: 1;
 }
 
 .submitButton::before {
@@ -210,47 +212,32 @@
 }
 
 .submitButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 112, 243, 0.3);
-  animation: gradientShiftFast 1.5s ease-in-out infinite;
+  color: white;
 }
-
+.submitButton:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s ease-in-out infinite;
+}
 .submitButton:active {
   transform: translateY(0);
 }
 
-/* Gradient animations - matching the tab buttons */
+/* Gradient Animation */
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes gradientShiftFast {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 100% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Preview Section - if needed */
+/* Preview */
 .preview {
   margin-top: 30px;
   padding: 20px;
@@ -272,19 +259,33 @@
   color: #666;
   font-family: 'SansSerifFLF', sans-serif;
 }
-
 .previewContent p {
   margin: 8px 0;
 }
-
 .previewContent strong {
   color: #0070f3;
 }
 
+/* Scrollbar for .textarea */
+  .textarea::-webkit-scrollbar {
+    width: 4px;
+  }
+  .textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .textarea::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0070f3, #00a8ff);
+    border-radius: 2px;
+  }
+  .textarea::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #005bb5, #0070f3);
+  }
+
+
 /* Responsive Design - matches main component breakpoints */
 @media (max-width: 768px) {
   .container {
-    padding: 15px;
+    padding: 10px;
   }
   
   .form {
@@ -302,22 +303,30 @@
   }
   
   .verificationInput {
-    font-size: 18px;
+    font-size: 15px;
     letter-spacing: 6px;
   }
-  
+
   .ratingContainer {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 12px;
   }
+
+  .ratingText {
+    padding-top: 10px;
+  }
   
+  .label2 {
+    padding-top: 15px;
+  }
+
   .star {
     font-size: 24px;
   }
   
   .submitButton {
-    padding: 12px 16px;
+    padding: 10px 16px;
     font-size: 15px;
   }
 }
@@ -374,6 +383,36 @@
   }
   
   .textarea {
+    height: 100px;
     min-height: 110px;
+    max-height: 200px;
+  }
+  
+  .label {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  
+  .input {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .verificationInput {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+  
+  .star {
+    font-size: 22px;
+  }
+  
+  .submitButton {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .helpText {
+    font-size: 11px;
   }
 }

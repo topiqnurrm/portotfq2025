@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 0rem 0rem;
   height: 93vh;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   padding-top: 3.5vh;
   width: 100%;
   /* background-color: #000; */
@@ -125,7 +125,7 @@
   flex-direction: row;
   gap: 1.5rem;
   margin-top: 3vh;
-  align-items: flex-start;
+  align-items: center;
   z-index: 999;
 }
 
@@ -145,14 +145,22 @@
   transition: all 0.3s ease;
 }
 
-.socialItem:hover .socialIcon {
+.socialIcon2 {
+  width: 36px;
+  height: 26px;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Membuat gambar #666 */
+  transition: all 0.3s ease;
+}
+
+.socialItem:hover .socialIcon,
+.socialItem:hover .socialIcon2 {
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(190deg) brightness(104%) contrast(97%);
   /* Filter ini akan mengubah warna menjadi #007acc */
 }
 
 /* Efek hover untuk mengubah src gambar */
-.socialItem:hover .socialIcon[src="/home/wa0.png"] {
-  content: url("/home/wa1.png");
+.socialItem:hover .socialIcon2[src="/home/email0.png"] {
+  content: url("/home/email1.png");
 }
 
 .socialItem:hover .socialIcon[src="/home/instagram0.png"] {
@@ -222,7 +230,7 @@
     padding-left: 5vw;
     padding-right: 5vw;
     padding-top: 2vh;
-    height: 93vh;
+    height: 94vh;
     position: relative;
   }
   
@@ -297,6 +305,11 @@
     height: 28px;
   }
 
+  .socialIcon2 {
+    width: 34px;
+    height: 24px;
+  }
+
   .buttonContainer {
     margin-top: 3vh;
     text-align: center;
@@ -314,7 +327,7 @@
     padding-left: 4vw;
     padding-right: 4vw;
     padding-top: 1vh;
-    height: 93vh;
+    height: 95vh;
   }
 
   .wadahku {
@@ -374,6 +387,11 @@
     height: 25px;
   }
 
+  .socialIcon2 {
+    width: 31px;
+    height: 21px;
+  }
+
   .buttonContainer {
     margin-top: 2vh;
   }
@@ -389,7 +407,7 @@
   .container {
     padding-left: 3vw;
     padding-right: 3vw;
-    height: 93vh;
+    height: 95vh;
   }
 
   .lanyardku {
@@ -422,8 +440,19 @@
     height: 22px;
   }
 
+  .socialIcon2 {
+    width: 28px;
+    height: 18px;
+  }
+
   .aboutButton {
     padding: 6px 18px;
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) and (min-height: 700px) {
+  .container {
+    height: 95vh;
   }
 }

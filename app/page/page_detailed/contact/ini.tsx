@@ -54,9 +54,9 @@ export default function Contact() {
                 <img src="/home/instagram0.png" alt="Instagram" className={styles.socialIcon} />
                 <p>@topiqnurrm</p>
               </a>
-              <a href="https://wa.me/6288232363332" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
-                <img src="/home/wa0.png" alt="WhatsApp" className={styles.socialIcon} />
-                <p>+62 882-3236-3332</p>
+              <a href="mailto:topiqnurrm@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.socialItem}>
+                <img src="/home/email0.png" alt="Email" className={styles.socialIcon2} />
+                <p>topiqnurrm@gmail.com</p>
               </a>
             </div>
           </div>
