@@ -210,7 +210,7 @@
 
 .socialIcon2 {
   width: 30px;
-  height: 20px;
+  height: 22px;
   filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
   transition: all 0.3s ease;
 }
@@ -264,7 +264,7 @@
 .sc2 {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
   align-items: flex-start;
 }
 
@@ -274,7 +274,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 3.5vh;
-    height: 93vh;
+    max-height: 93vh;
     border: 1px solid #000;
     padding-top: 3.5vh;
     padding-bottom: 3.5vh;
@@ -287,6 +287,7 @@
     gap: 0;
     margin: 0;
     padding: 0;
+    /* height: 70vh; */
   }
   
   .contentArea {
@@ -296,6 +297,17 @@
     height: 75%;
     /* max-height: 60vh; */
     margin: 0;
+  }
+
+  .sosmed {
+    width: 100%;
+    gap: 1rem;
+    padding: 5px 20px 0 20px;
+    height: 25%;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: center;
+    align-items: center;
   }
 
   .kontakmiring {
@@ -315,17 +327,6 @@
   .tabButton {
     padding: 5px 14px;
     font-size: 0.95rem;
-  }
-  
-  .sosmed {
-    width: 100%;
-    gap: 1rem;
-    padding: 5px 20px 0 20px;
-    height: 25%;
-    align-items: center;
-    /* justify-content: center; */
-    justify-content: center;
-    align-items: center;
   }
   
   .container {
@@ -374,7 +375,7 @@
 
   .socialItem .socialIcon2 {
     width: 25px;
-    height: 15px;
+    height: 17px;
   }
 
   .socialItem p {
@@ -458,7 +459,7 @@
 
   .socialItem .socialIcon2 {
     width: 20px;
-    height: 10px;
+    height: 12px;
   }
 
   .socialItem p {
@@ -542,7 +543,7 @@
 
   .socialItem .socialIcon2 {
     width: 20px;
-    height: 10px;
+    height: 12px;
   }
 
   .socialItem p {

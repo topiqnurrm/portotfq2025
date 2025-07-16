@@ -286,11 +286,13 @@
 @media (max-width: 768px) {
   .container {
     padding: 10px;
+    height: 100%;
+    overflow-y: auto;
   }
   
   .form {
     gap: 20px;
-    max-width: 100%;
+    width: 100%;
   }
   
   .label {
@@ -371,6 +373,17 @@
   .helpText {
     font-size: 11px;
   }
+
+  .formGroup2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+  }
+
+  .ratingContainer {
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
 }
 
 @media (max-width: 480px) and (min-height: 700px) {
@@ -414,5 +427,16 @@
   
   .helpText {
     font-size: 11px;
+  }
+
+  .formGroup2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+  }
+
+  .ratingContainer {
+    margin-top: -5px;
+    margin-bottom: -5px;
   }
 }
