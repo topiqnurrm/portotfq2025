@@ -10,12 +10,13 @@
   /* overflow-y: auto; */
   padding-left: 45vw;
   /* background-color: #000; */
+  justify-content: center;
 }
 
 .title1 {
   font-size: 2.5rem;
   color: #666;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
   z-index: 999;
 }
 
@@ -71,6 +72,9 @@
 
 .wadahku {
   z-index: 999;
+  /* justify-content: center;
+  align-items: center; */
+  margin-top: -10vh;
 }
 
 .lanyardku {

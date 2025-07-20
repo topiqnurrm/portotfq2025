@@ -9,6 +9,9 @@ export default function Home() {
   const [gravityX, setGravityX] = useState(0);
   const animationRef = useRef<NodeJS.Timeout | null>(null);
   
+  // State untuk tracking active section
+  const [activeSection, setActiveSection] = useState('home');
+  
   // State untuk typing animation
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,17 +22,44 @@ export default function Home() {
     "Full Stack Developer",
     "Graphic Designer",
     "UI/UX Designer",
-    // "Frontend Developer",
-    // "Backend Developer",
-    // "Mobile Developer"
   ];
+
+  // Effect untuk mendeteksi section aktif
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'projects', 'services', 'contact'];
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const height = rect.height;
+
+          // Hitung bagian yang terlihat
+          const visibleBottom = Math.min(window.innerHeight, rect.bottom);
+          const visibleHeight = visibleBottom - Math.max(rect.top, 0);
+          const visibleRatio = visibleHeight / height;
+
+          if (visibleRatio >= 0.6) { // jika 60% atau lebih terlihat
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial active section
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Fungsi untuk smooth scroll ke section tertentu
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight * 0.07); // 7vh offset
+      const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight * 0.07);
       
       window.scrollTo({
         top: offsetPosition,
@@ -44,27 +74,23 @@ export default function Home() {
       const currentRole = roles[currentIndex];
       
       if (isDeleting) {
-        // Menghapus karakter
         setCurrentText(prev => prev.slice(0, -1));
-        setTypeSpeed(50); // Kecepatan menghapus lebih cepat
+        setTypeSpeed(50);
         
-        // Jika sudah selesai menghapus
         if (currentText === "") {
           setIsDeleting(false);
           setCurrentIndex(prev => (prev + 1) % roles.length);
           setTypeSpeed(100);
         }
       } else {
-        // Mengetik karakter
         if (currentText !== currentRole) {
           setCurrentText(currentRole.slice(0, currentText.length + 1));
           setTypeSpeed(100);
         } else {
-          // Pause sebelum mulai menghapus
           setTimeout(() => {
             setIsDeleting(true);
             setTypeSpeed(50);
-          }, 2000); // Pause 2 detik
+          }, 2000);
         }
       }
     };
@@ -106,12 +132,16 @@ export default function Home() {
 
   return (
     <section id="home" className={styles.container}>   
-      <div className={styles.lanyardku}>
-        <Lanyard 
-          position={[0, 0, 15]} 
-          gravity={[gravityX, -40, 0]} 
-        />    
-      </div> 
+      {/* Lanyard hanya ditampilkan ketika section aktif adalah 'home' */}
+      {activeSection === 'home' && (
+        <div className={styles.lanyardku}>
+          <Lanyard 
+            position={[0, 0, 15]} 
+            gravity={[gravityX, -40, 0]} 
+          />    
+        </div>
+      )}
+      
       <div className={styles.wadahku}>
         <h1 className={styles.title1}>Hello, It's me</h1>
         <h1 className={styles.title3}>Taufiq Nurrohman</h1>

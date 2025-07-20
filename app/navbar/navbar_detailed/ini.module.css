@@ -284,3 +284,11 @@
     bottom: -1vh; /* Turunkan garis bawah lebih jauh */
   }
 }
+
+
+/* MacBook Air 13" M1/M2 (1200px - 1279px) */
+@media (min-width: 1200px) and (max-width: 1279px) {
+.navLink::before {
+    bottom: -10vh; /* Turunkan garis bawah lebih jauh */
+  }
+}
