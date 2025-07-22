@@ -1,7 +1,465 @@
+/* === Container === */
 .komen {
   width: 100%;
   height: 100%;
-  border: 1px solid #000;
-  color: #000;
   padding: 20px;
+  background-color: transparent;
+  font-family: 'SansSerifFLF', sans-serif;
+  overflow-y: auto;
+  border: 1px solid #000000;
+}
+
+/* Scrollbar styling */
+.komen::-webkit-scrollbar {
+  width: 4px;
+}
+.komen::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.komen::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070f3, #00a8ff);
+  border-radius: 2px;
+}
+.komen::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #005bb5, #0070f3);
+}
+
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* === Empty State === */
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+}
+
+.emptyText {
+  color: #999;
+  font-size: 1rem;
+  font-style: italic;
+  font-family: 'SansSerifFLF', sans-serif;
+}
+
+/* === Comment Card === */
+.commentCard {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.commentCard:hover {
+  border-color: #0070f3;
+  box-shadow: 0 2px 8px rgba(0, 112, 243, 0.1);
+}
+
+/* === Comment Header === */
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authorName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0070f3;
+  font-family: 'SansSerifFLF', sans-serif;
+  cursor: help;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.authorName:hover {
+  color: #005bb5;
+}
+
+.commentDate {
+  font-size: 0.8rem;
+  color: #999;
+  font-family: 'SansSerifFLF', sans-serif;
+}
+
+/* === Rating === */
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.starsContainer {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 18px;
+  color: #ddd;
+  user-select: none;
+}
+
+.starActive {
+  color: #00a8ff;
+}
+
+/* === Comment Content === */
+.commentContent {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.commentContent p,
+.commentContentP {
+  margin: 0;
+  color: #666;
+  font-family: 'SansSerifFLF', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+/* === Replies === */
+.repliesContainer {
+  margin: 15px 0;
+  padding-left: 20px;
+  border-left: 3px solid #0070f3;
+}
+
+.replyCard {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(0, 112, 243, 0.03) 0%, rgba(0, 184, 148, 0.03) 50%, rgba(9, 132, 227, 0.03) 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 112, 243, 0.1);
+}
+
+.replyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.replyAuthor {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0070f3;
+  font-family: 'SansSerifFLF', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.replyDate {
+  font-size: 0.75rem;
+  color: #999;
+  font-family: 'SansSerifFLF', sans-serif;
+}
+
+.replyContent p,
+.replyContentP {
+  margin: 0;
+  color: #666;
+  font-family: 'SansSerifFLF', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+/* === Additional Interactive Elements (if needed for future features) === */
+.replySection {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.replyButton {
+  padding: 6px 12px;
+  border: 1px solid #0070f3;
+  background-color: transparent;
+  color: #0070f3;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'SansSerifFLF', sans-serif;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.replyButton:hover {
+  background-color: #0070f3;
+  color: white;
+}
+
+/* === Reply Form (for future interactive features) === */
+.replyForm {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.replyInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'SansSerifFLF', sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #666;
+  letter-spacing: 0.2px;
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+
+.replyInput:focus {
+  border-color: #0070f3;
+}
+
+.replyInput::placeholder {
+  color: #999;
+  font-family: 'SansSerifFLF', sans-serif;
+}
+
+/* Scrollbar untuk reply input */
+.replyInput::-webkit-scrollbar {
+  width: 4px;
+}
+.replyInput::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.replyInput::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070f3, #00a8ff);
+  border-radius: 2px;
+}
+.replyInput::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #005bb5, #0070f3);
+}
+
+.replyActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitReply {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  background-size: 200% 200%;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'SansSerifFLF', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  border-image: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  border-image-slice: 1;
+  letter-spacing: 0.3px;
+}
+
+.submitReply::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #007acc 0%, #00b894 50%, #0984e3 100%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.submitReply:hover {
+  color: white;
+}
+
+.submitReply:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.submitReply:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitReply:disabled:hover {
+  color: #666;
+}
+
+.submitReply:disabled:hover::before {
+  opacity: 0;
+}
+
+/* Gradient animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .komen {
+    padding: 15px;
+  }
+  
+  .commentCard {
+    padding: 15px;
+  }
+  
+  .commentHeader {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .authorName {
+    font-size: 0.95rem;
+  }
+  
+  .commentDate {
+    font-size: 0.75rem;
+  }
+  
+  .commentContent p,
+  .commentContentP {
+    font-size: 0.9rem;
+  }
+  
+  .star {
+    font-size: 16px;
+  }
+  
+  .repliesContainer {
+    padding-left: 15px;
+    border-left-width: 2px;
+  }
+  
+  .replyCard {
+    padding: 12px;
+  }
+  
+  .replyInput {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .replyButton,
+  .submitReply {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .komen {
+    padding: 10px;
+  }
+  
+  .commentCard {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .authorName {
+    font-size: 0.9rem;
+  }
+  
+  .commentDate,
+  .replyDate {
+    font-size: 0.7rem;
+  }
+  
+  .commentContent p,
+  .commentContentP {
+    font-size: 0.85rem;
+  }
+  
+  .star {
+    font-size: 14px;
+  }
+  
+  .repliesContainer {
+    padding-left: 10px;
+  }
+  
+  .replyCard {
+    padding: 10px;
+  }
+  
+  .replyAuthor {
+    font-size: 0.85rem;
+  }
+  
+  .replyContent p,
+  .replyContentP {
+    font-size: 0.8rem;
+  }
+  
+  .replyInput {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-height: 70px;
+  }
+  
+  .replyButton,
+  .submitReply {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+  
+  .emptyText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) and (min-height: 700px) {
+  .komen {
+    padding: 15px;
+  }
+  
+  .commentCard {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .replyInput {
+    min-height: 80px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .replyButton,
+  .submitReply {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
 }
