@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Komen.module.css';
+import styles from './komen.module.css';
 
 export default function Komen() {
   // Data dummy untuk contoh - nanti bisa diganti dengan data dari backend
