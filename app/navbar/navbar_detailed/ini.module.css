@@ -10,6 +10,7 @@
 
   /* Tambahan untuk glassmorphism effect */
   background: rgba(255, 255, 255, 0.15);
+  /* background: blue; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   /* border: 1px solid rgba(255, 255, 255, 0.2); */
@@ -286,9 +287,24 @@
 }
 
 
-/* MacBook Air 13" M1/M2 (1200px - 1279px) */
-@media (min-width: 1200px) and (max-width: 1279px) {
-.navLink::before {
-    bottom: -10vh; /* Turunkan garis bawah lebih jauh m */ 
+/* MacBook Air 13" dan sejenis (1280px - 1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .navLink::before {
+    bottom: -2.7vh;
+  }
+
+  /* .detailed {
+    background: green; 
+  } */
+}
+
+/* Layar lebar (1440px ke atas) */
+@media (min-width: 1440px) {
+  /* .detailed {
+    background: green; 
+  } */
+
+  .navLink::before {
+    bottom: -2.7vh;
   }
 }

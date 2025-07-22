@@ -6,7 +6,7 @@
   background-color: transparent;
   font-family: 'SansSerifFLF', sans-serif;
   overflow-y: auto;
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
 }
 
 /* Scrollbar styling */
@@ -93,7 +93,7 @@
 }
 
 .commentDate {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #999;
   font-family: 'SansSerifFLF', sans-serif;
 }
@@ -130,7 +130,7 @@
   margin: 0;
   color: #666;
   font-family: 'SansSerifFLF', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: 0.2px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .replyAuthor {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #0070f3;
   font-family: 'SansSerifFLF', sans-serif;
@@ -167,7 +167,7 @@
 }
 
 .replyDate {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #999;
   font-family: 'SansSerifFLF', sans-serif;
 }
@@ -177,7 +177,7 @@
   margin: 0;
   color: #666;
   font-family: 'SansSerifFLF', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.2px;
 }
